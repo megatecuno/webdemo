@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 95%; /* Light gray like macOS background */
+    --foreground: 240 10% 3.9%;
+    --card: 220 13% 98%; /* Slightly whiter than background */
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 210 89% 60%; /* A nice blue, similar to macOS accents */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 14% 90%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 220 9% 85%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 210 89% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 88%;
+    --input: 220 13% 92%;
+    --ring: 210 89% 60%;
+    --radius: 0.8rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 220 13% 25%;
+    --foreground: 0 0% 98%;
+    --card: 220 13% 30%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 13% 25%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 210 89% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 13% 35%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 13% 35%;
+    --muted-foreground: 220 5% 75%;
+    --accent: 210 89% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 40%;
+    --input: 220 13% 40%;
+    --ring: 210 89% 60%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  .dark body {
+    background-image: linear-gradient(to bottom, hsl(220, 13%, 18%) 0%, hsl(220, 13%, 25%) 100%);
+  }
+
+  body {
+     background-image: linear-gradient(to bottom, #ebeff4 0%, #d1d5db 100%);
+  }
+}
+
+@layer components {
+  .glass-button {
+    @apply inline-flex items-center justify-center gap-2 h-10 px-4 text-sm font-medium text-black dark:text-white bg-white/30 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/20 rounded-lg shadow-lg transition-all duration-200 transform;
+  }
+  .glass-button:hover {
+    @apply scale-105;
+  }
+  .glass-button-green:hover {
+     @apply bg-lime-500 text-white;
+  }
+  .glass-button-orange:hover {
+      @apply bg-orange-500 text-white;
+  }
+  .glass-button-black:hover {
+      @apply bg-black text-white;
+  }
+   .glass-button-red:hover {
+      @apply bg-red-500 text-white;
+  }
+
+  .stats-box {
+    @apply flex-1 bg-gray-200/80 dark:bg-card/60 p-4 rounded-2xl shadow-inner border border-white/60 dark:border-white/10;
+    box-shadow: -16px -16px 32px rgba(255, 255, 255, 0.15) inset, 16px 16px 32px rgba(0, 0, 0, 0.03) inset, -8px -8px 16px rgba(255, 255, 255, 0.4), 8px 8px 16px rgba(0, 0, 0, 0.25);
+  }
+  
+  .dark .stats-box {
+    box-shadow: -8px -8px 16px hsla(220, 13%, 100%, 0.03) inset, 8px 8px 16px hsla(220, 13%, 0%, 0.2) inset;
+  }
+
+  .main-table-container {
+    @apply bg-gray-300/50 dark:bg-card/50 rounded-2xl overflow-x-auto my-5 border border-white/60 dark:border-white/10;
+     box-shadow: -16px -16px 32px rgba(255, 255, 255, 0.15) inset, 16px 16px 32px rgba(0, 0, 0, 0.03) inset, -8px -8px 16px rgba(255, 255, 255, 0.4), 8px 8px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .dark .main-table-container {
+     box-shadow: -8px -8px 16px hsla(220, 13%, 100%, 0.03) inset, 8px 8px 16px hsla(220, 13%, 0%, 0.2) inset;
+  }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
